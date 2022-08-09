@@ -14,7 +14,7 @@ const computerChoosing = () => {
 // Using randomized answer from computer
 // Determine winner and adjust score up, loop for a game of five
 const game = () => {
-  for (i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i++) {
     let userChoice = prompt("Please enter Rock, Paper, or Scissors!");
     if (
       userChoice === "Rock" ||
@@ -54,7 +54,7 @@ const game = () => {
         }
       }
       console.log(playerScore, computerScore);
-    }
+    } else console.log("Try something else!");
   }
   if (playerScore > computerScore) {
     return "The player wins againt the computer!";
@@ -64,5 +64,4 @@ const game = () => {
   } else return "The game is a tie, try again!";
 };
 
-// Log game result to console
 console.log(game());
