@@ -10,6 +10,16 @@ const computerChoosing = () => {
   return choiceArray[randomChoice];
 };
 
+const computerWins = () => {
+  console.log("The computer wins!");
+  computerScore++;
+};
+
+const playerWins = () => {
+  console.log("The player wins!");
+  playerScore++;
+};
+
 // Recieve input from user
 // Using randomized answer from computer
 // Determine winner and adjust score up, loop for a game of five
@@ -27,37 +37,31 @@ const game = () => {
         console.log("It's a tie!");
       } else if (userChoice === "Rock") {
         if (computerChoice === "Paper") {
-          console.log("The computer wins!");
-          computerScore++;
+          computerWins();
         }
         if (computerChoice === "Scissors") {
-          console.log("The player wins!");
-          playerScore++;
+          playerWins();
         }
       } else if (userChoice === "Paper") {
         if (computerChoice === "Rock") {
-          console.log("The computer wins!");
-          computerScore++;
+          playerWins();
         }
         if (computerChoice === "Scissors") {
-          console.log("The computer wins!");
-          computerScore++;
+          computerWins();
         }
       } else if (userChoice === "Scissors") {
         if (computerChoice === "Rock") {
-          console.log("The computer wins!");
-          computerScore++;
+          computerWins();
         }
         if (computerChoice === "Paper") {
-          console.log("The player wins!");
-          playerScore++;
+          playerWins();
         }
       }
       console.log(playerScore, computerScore);
     } else console.log("Try something else!");
   }
   if (playerScore > computerScore) {
-    return "The player wins againt the computer!";
+    return "The player wins against the computer!";
   }
   if (computerScore > playerScore) {
     return "The computer wins against the player!";
