@@ -21,51 +21,52 @@ const playerWins = () => {
   playerScore++;
 };
 
+let userChoice = "";
+const userSelectRock = () => {
+  userChoice = "Rock";
+};
+const userSelectPaper = () => {
+  userChoice = "Paper";
+};
+const userSelectScissors = () => {
+  userChoice = "Scissors";
+};
+
 // Receive input from user
 // Using randomized answer from computer
 // Determine winner and adjust score up, loop for a game of five
 const game = () => {
-  for (let i = 0; i < 5; i++) {
-    //Prompt
-    let userChoice = prompt("Please enter Rock, Paper, or Scissors!");
-    //Check user input valid answer
-    if (
-      userChoice === "Rock" ||
-      userChoice === "Paper" ||
-      userChoice === "Scissors"
-    ) {
-      //Check for tie
-      console.log(`The player chooses ${userChoice}!`);
-      let computerChoice = computerChoosing();
-      if (computerChoice === userChoice) {
-        console.log("It's a tie!");
-        //Check all possibilities
-      } else if (userChoice === "Rock") {
-        if (computerChoice === "Paper") {
-          computerWins();
-        }
-        if (computerChoice === "Scissors") {
-          playerWins();
-        }
-      } else if (userChoice === "Paper") {
-        if (computerChoice === "Rock") {
-          playerWins();
-        }
-        if (computerChoice === "Scissors") {
-          computerWins();
-        }
-      } else if (userChoice === "Scissors") {
-        if (computerChoice === "Rock") {
-          computerWins();
-        }
-        if (computerChoice === "Paper") {
-          playerWins();
-        }
-      }
-      console.log(playerScore, computerScore);
-    } else console.log("Try something else!");
+  //Prompt
+  //Check user input valid answer
+  //Check for tie
+  console.log(`The player chooses ${userChoice}!`);
+  let computerChoice = computerChoosing();
+  if (computerChoice === userChoice) {
+    console.log("It's a tie!");
+    //Check all possibilities
+  } else if (userChoice === "Rock") {
+    if (computerChoice === "Paper") {
+      computerWins();
+    }
+    if (computerChoice === "Scissors") {
+      playerWins();
+    }
+  } else if (userChoice === "Paper") {
+    if (computerChoice === "Rock") {
+      playerWins();
+    }
+    if (computerChoice === "Scissors") {
+      computerWins();
+    }
+  } else if (userChoice === "Scissors") {
+    if (computerChoice === "Rock") {
+      computerWins();
+    }
+    if (computerChoice === "Paper") {
+      playerWins();
+    }
   }
-  //Determine winner
+  console.log(playerScore, computerScore);
   if (playerScore > computerScore) {
     return "The player wins against the computer!";
   }
@@ -73,6 +74,15 @@ const game = () => {
     return "The computer wins against the player!";
   } else return "The game is a tie, try again!";
 };
+//Determine winner
 
-//Play game in console; temp;
-console.log(game());
+const options = document.getElementsByClassName("option");
+const rock = document.getElementById("Rock");
+const paper = document.getElementById("Paper");
+const scissors = document.getElementById("Scissors");
+
+const handleSubmit = () => {
+  game();
+};
+
+const submitButton = document.getElementById("submit-button");
