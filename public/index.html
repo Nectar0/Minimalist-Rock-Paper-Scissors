@@ -34,6 +34,29 @@
       <p id="winLog" class="p">~</p>
       <p id="scoreBoard" class="p">~</p>
     </div>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyD9imK3a_57eCTh9Kann6GD5e5JyY_tuiM",
+        authDomain: "minimalist-rock-paper-scissors.firebaseapp.com",
+        projectId: "minimalist-rock-paper-scissors",
+        storageBucket: "minimalist-rock-paper-scissors.appspot.com",
+        messagingSenderId: "222805127998",
+        appId: "1:222805127998:web:7bd0f949c1f949450cf26f",
+        measurementId: "G-TSN8SF4S2B",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
     <script src="scripts/main.js"></script>
   </body>
 </html>
