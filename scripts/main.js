@@ -78,14 +78,14 @@ const game = () => {
   }
   console.log(playerScore, computerScore);
   if (playerScore > computerScore) {
-    return "The player wins against the computer!";
     winner = "player";
     loser = "computer";
+    return "The player wins against the computer!";
   }
   if (computerScore > playerScore) {
-    return "The computer wins against the player!";
     winner = "computer";
     loser = "player";
+    return "The computer wins against the player!";
   } else return "The game is a tie, try again!";
 };
 //Determine winner
