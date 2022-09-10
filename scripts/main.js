@@ -4,7 +4,7 @@ let playerScore = 0;
 let computerScore = 0;
 let winner = "";
 let loser = "";
-
+const submitButton = document.getElementById("submit-button");
 const winLog = document.getElementById("winLog");
 const scoreBoard = document.getElementById("scoreBoard");
 
@@ -14,24 +14,29 @@ const computerChoosing = () => {
   console.log(`The computer chooses ${choiceArray[randomChoice]}!`);
   return choiceArray[randomChoice];
 };
+
 //Script IF computer wins
 const computerWins = () => {
-  console.log("The computer wins!");
   computerScore++;
   winner = "computer";
   loser = "player";
 };
 
+const tieGame = () => {
+  winLog.textContent = "The game is a tie!";
+  scoreBoard.textContent = "~";
+  choiceLog.textContent = "~";
+};
+
 //Script IF player wins
 const playerWins = () => {
-  console.log("The player wins!");
   playerScore++;
   winner = "player";
   loser = "computer";
 };
 
 //Hello
-let userChoice = "";
+let userChoice;
 const userSelectRock = () => {
   userChoice = "Rock";
 };
@@ -46,14 +51,10 @@ const userSelectScissors = () => {
 // Using randomized answer from computer
 // Determine winner and adjust score up, loop for a game of five
 const game = () => {
-  //Prompt
-  //Check user input valid answer
-  //Check for tie
-  console.log(`The player chooses ${userChoice}!`);
   let computerChoice = computerChoosing();
-  if (computerChoice === userChoice) {
-    console.log("It's a tie!");
-    //Check all possibilities
+  //Check all possibilities
+  if (userChoice === computerChoice) {
+    tieGame();
   } else if (userChoice === "Rock") {
     if (computerChoice === "Paper") {
       computerWins();
@@ -75,33 +76,21 @@ const game = () => {
     if (computerChoice === "Paper") {
       playerWins();
     }
+    winLog.textContent = `The ${winner} wins and the ${loser} loses!`;
+    scoreBoard.textContent = `The player's score is ${playerScore} and the computer's score is ${computerScore}.`;
+    choiceLog.textContent = `The player chooses ${userChoice} and the computer chooses ${computerChoice}.`;
   }
-  console.log(playerScore, computerScore);
-  if (playerScore > computerScore) {
-    winner = "player";
-    loser = "computer";
-    return "The player wins against the computer!";
-  }
-  if (computerScore > playerScore) {
-    winner = "computer";
-    loser = "player";
-    return "The computer wins against the player!";
-  } else return "The game is a tie, try again!";
 };
-//Determine winner
 
-const options = document.getElementsByClassName("option");
+//Determine winner
+const choiceLog = document.getElementById("choiceLog");
+const options = document.getElementById("option");
 const rock = document.getElementById("Rock");
 const paper = document.getElementById("Paper");
 const scissors = document.getElementById("Scissors");
 
 const handleSubmit = () => {
   game();
-  winLog.textContent = `The ${winner} wins and the ${loser} loses!`;
-  scoreBoard.textContent = `The player's score is ${playerScore} and the computer's score is ${computerScore}.`;
 };
 
-const submitButton = document.getElementById("submit-button");
-
 //Add round counter & round limit to declare winner on
-//Add changing <p> so the game doesn't have to be played from the console.
