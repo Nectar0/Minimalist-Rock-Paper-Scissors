@@ -1,7 +1,10 @@
 /* insert styling */
 
-h1 {
+* {
   font-family: "Press Start 2P", cursive;
+}
+
+h1 {
   font-size: 400%;
   text-align: center;
   margin-top: 100px;
@@ -9,7 +12,6 @@ h1 {
 
 .choice,
 h2 {
-  font-family: "Press Start 2P", cursive;
   font-size: 200%;
   text-align: center;
   margin-top: 150px;
@@ -28,6 +30,7 @@ button.option {
   background-color: lightgoldenrodyellow;
   font-size: 50px;
   transition: 0.3s;
+  border-radius: 25%;
 }
 
 button.option:hover {
@@ -37,10 +40,6 @@ button.option:hover {
 
 .submit {
   text-align: center;
-}
-
-#submit-button {
-  font-family: "Press Start 2P", cursive;
 }
 
 #submit-button:hover {
