@@ -7,11 +7,21 @@ let loser = "";
 const submitButton = document.getElementById("submit-button");
 const winLog = document.getElementById("winLog");
 const scoreBoard = document.getElementById("scoreBoard");
+const head = document.getElementById("head");
+
+const endGame = () => {
+  const findWinner = () => {
+    if (playerScore > computerScore) {
+      return "Player";
+    } else return "Computer";
+  };
+  let winner = findWinner();
+  head.textContent = `The winner of the game is... the ${winner}!!!`;
+};
 
 // Computer randomizing answer
 const computerChoosing = () => {
   let randomChoice = Math.floor(Math.random() * choiceArray.length);
-  console.log(`The computer chooses ${choiceArray[randomChoice]}!`);
   return choiceArray[randomChoice];
 };
 
@@ -25,7 +35,7 @@ const computerWins = () => {
 const tieGame = () => {
   winLog.textContent = "The game is a tie!";
   scoreBoard.textContent = "~";
-  choiceLog.textContent = "~";
+  choiceLog.textContent = `The computer also chose ${userChoice}.`;
 };
 
 //Script IF player wins
@@ -52,33 +62,44 @@ const userSelectScissors = () => {
 // Determine winner and adjust score up, loop for a game of five
 const game = () => {
   let computerChoice = computerChoosing();
+  const changeText = () => {
+    winLog.textContent = `The ${winner} wins and the ${loser} loses!`;
+    scoreBoard.textContent = `The player's score is ${playerScore} and the computer's score is ${computerScore}.`;
+    choiceLog.textContent = `The player chooses ${userChoice} and the computer chooses ${computerChoice}.`;
+  };
   //Check all possibilities
   if (userChoice === computerChoice) {
     tieGame();
   } else if (userChoice === "Rock") {
     if (computerChoice === "Paper") {
       computerWins();
+      changeText();
     }
     if (computerChoice === "Scissors") {
       playerWins();
+      changeText();
     }
   } else if (userChoice === "Paper") {
     if (computerChoice === "Rock") {
       playerWins();
+      changeText();
     }
     if (computerChoice === "Scissors") {
       computerWins();
+      changeText();
     }
   } else if (userChoice === "Scissors") {
     if (computerChoice === "Rock") {
       computerWins();
+      changeText();
     }
     if (computerChoice === "Paper") {
       playerWins();
+      changeText();
     }
-    winLog.textContent = `The ${winner} wins and the ${loser} loses!`;
-    scoreBoard.textContent = `The player's score is ${playerScore} and the computer's score is ${computerScore}.`;
-    choiceLog.textContent = `The player chooses ${userChoice} and the computer chooses ${computerChoice}.`;
+  }
+  if (computerScore + playerScore === 5) {
+    endGame();
   }
 };
 
