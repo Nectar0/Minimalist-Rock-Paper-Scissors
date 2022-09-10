@@ -8,6 +8,10 @@ const submitButton = document.getElementById("submit-button");
 const winLog = document.getElementById("winLog");
 const scoreBoard = document.getElementById("scoreBoard");
 const head = document.getElementById("head");
+const submit = document.getElementById("submit-button");
+submit.addEventListener("click", function onClick(event) {
+  document.body.style.backgroundColor = "";
+});
 
 const endGame = () => {
   const findWinner = () => {
@@ -113,5 +117,3 @@ const scissors = document.getElementById("Scissors");
 const handleSubmit = () => {
   game();
 };
-
-//Add round counter & round limit to declare winner on

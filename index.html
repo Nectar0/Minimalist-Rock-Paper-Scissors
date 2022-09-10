@@ -5,27 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minimalistic Rock-Paper-Scissors!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css/styles.css" />
   </head>
   <body>
-    <h1>Minimalistic Rock-Paper-Scissors!</h1>
+    <h1>Rock, Paper, Scissors!</h1>
     <h2 id="head"></h2>
-    <p>~ Select a choice ~</p>
-    <button onclick="userSelectRock()" class="option" id="Rock">Rock</button>
-    <button onclick="userSelectPaper()" class="option" id="Paper">Paper</button>
-    <button onclick="userSelectScissors()" class="option" id="Scissors">
-      Scissors
-    </button>
-    <button
-      onclick="handleSubmit()"
-      id="submit-button"
-      style="margin-left: 30px"
-      type="submit"
-    >
-      Submit Answer
-    </button>
-    <p id="choiceLog" class="p">~</p>
-    <p id="winLog" class="p">~</p>
-    <p id="scoreBoard" class="p">~</p>
+    <p class="choice">~ Select a choice ~</p>
+    <div class="buttons">
+      <button onclick="userSelectRock()" class="option" id="Rock">⛰️</button>
+      <button onclick="userSelectPaper()" class="option" id="Paper">📝</button>
+      <button onclick="userSelectScissors()" class="option" id="Scissors">
+        ✂️
+      </button>
+    </div>
+    <div class="submit">
+      <button onclick="handleSubmit()" id="submit-button" type="submit">
+        Submit Answer
+      </button>
+    </div>
+    <div class="log">
+      <p id="choiceLog" class="p">~</p>
+      <p id="winLog" class="p">~</p>
+      <p id="scoreBoard" class="p">~</p>
+    </div>
     <script src="scripts/main.js"></script>
   </body>
 </html>
