@@ -96,6 +96,12 @@ button.option:hover {
 .image {
   height: 30px;
   width: 30px;
+  transition: 0.4s;
+}
+
+.image:active {
+  transform: rotate(-180deg);
+  transition: 0.1s;
 }
 
 .reset {
