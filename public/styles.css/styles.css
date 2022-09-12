@@ -31,11 +31,17 @@ button.option {
   font-size: 50px;
   transition: 0.3s;
   border-radius: 25%;
+  transition: 0.2s;
 }
 
 button.option:hover {
-  transition: 0.4s;
+  transition: 0.2s;
   background-color: rgb(225, 225, 169);
+}
+
+button.option:active {
+  transform: scale(0.8);
+  transition: 0.4s;
 }
 
 .submit {
