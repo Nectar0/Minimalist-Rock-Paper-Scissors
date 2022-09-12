@@ -104,4 +104,16 @@ button.option:hover {
   border-radius: 25%;
   margin-left: 15px;
   background-color: lightgreen;
+  transition: 0.3s;
+}
+
+.reset:hover {
+  background-color: rgb(154, 255, 154);
+  transition: 0.3s;
+}
+
+.reset:active {
+  scale: 0.8;
+  transition: 0.2s;
+  background-color: aquamarine;
 }
