@@ -39,7 +39,10 @@ button.option:hover {
 }
 
 .submit {
+  display: flex;
   text-align: center;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 #submit-button:hover {
@@ -88,4 +91,17 @@ button.option:hover {
 .log {
   text-align: center;
   margin-top: 50px;
+}
+
+.image {
+  height: 30px;
+  width: 30px;
+}
+
+.reset {
+  height: 50px;
+  width: 50px;
+  border-radius: 25%;
+  margin-left: 15px;
+  background-color: lightgreen;
 }
