@@ -21,6 +21,7 @@ const endGame = () => {
   };
   let winner = findWinner();
   head.textContent = `The winner of the game is... the ${winner}!!!`;
+  winLog.textContent = "Click reset to start a new game!";
 };
 
 // Computer randomizing answer
@@ -37,7 +38,7 @@ const computerWins = () => {
 };
 
 const tieGame = () => {
-  winLog.textContent = "The game is a tie!";
+  winLog.textContent = "The round is a tie!";
   scoreBoard.textContent = "~";
   choiceLog.textContent = `The computer also chose ${userChoice}.`;
 };
@@ -63,7 +64,6 @@ const userSelectScissors = () => {
 
 // Receive input from user
 // Using randomized answer from computer
-// Determine winner and adjust score up, loop for a game of five
 const game = () => {
   let computerChoice = computerChoosing();
   const changeText = () => {
@@ -116,4 +116,15 @@ const scissors = document.getElementById("Scissors");
 
 const handleSubmit = () => {
   game();
+};
+
+const resetGame = () => {
+  playerScore = 0;
+  computerScore = 0;
+  winner = "";
+  loser = "";
+  choiceLog.textContent = "~";
+  winLog.textContent = "~";
+  scoreBoard.textContent = "~";
+  head.textContent = "";
 };
